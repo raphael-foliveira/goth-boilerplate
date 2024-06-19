@@ -1,0 +1,14 @@
+package views
+
+import (
+	"fmt"
+	"github.com/raphael-foliveira/goth-boilerplate/views/partials"
+)
+
+templ SwappedNumbers(number int) {
+	@partials.BaseComponent() {
+		<div class="bg-red-300">
+			{ fmt.Sprintf("number: %d", number) }
+		</div>
+	}
+}
