@@ -10,13 +10,6 @@ import (
 	"github.com/raphael-foliveira/goth-boilerplate/internal/handlers"
 )
 
-func mountRoutes(app *echo.Echo) {
-	app.Static("/static", "public/assets")
-	app.GET("/", handlers.Healthcheck)
-	app.GET("/hello", handlers.Hello)
-	app.POST("/mouse-entered", handlers.Click)
-}
-
 func startServer(app *echo.Echo) {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
@@ -33,6 +26,6 @@ func startServer(app *echo.Echo) {
 
 func main() {
 	app := echo.New()
-	mountRoutes(app)
+	handlers.MountRoutes(app)
 	startServer(app)
 }

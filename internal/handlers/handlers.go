@@ -44,3 +44,10 @@ func Healthcheck(c echo.Context) error {
 		"status": "ok",
 	})
 }
+
+func MountRoutes(app *echo.Echo) {
+	app.Static("/static", "public/assets")
+	app.GET("/", Healthcheck)
+	app.GET("/hello", Hello)
+	app.POST("/mouse-entered", Click)
+}
