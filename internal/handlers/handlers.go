@@ -49,5 +49,5 @@ func MountRoutes(app *echo.Echo) {
 	app.Static("/static", "public/assets")
 	app.GET("/", Healthcheck)
 	app.GET("/hello", Hello)
-	app.POST("/mouse-entered", Click)
+	app.POST("/mouse-clicked", Click)
 }
