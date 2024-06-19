@@ -1,5 +1,5 @@
 dev:
-	npm run css | air
+	air
 
 build:
 	go build -o ./bin/main ./cmd/app
