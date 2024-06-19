@@ -8,6 +8,7 @@ import (
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
 	"github.com/raphael-foliveira/goth-boilerplate/views"
+	"github.com/raphael-foliveira/goth-boilerplate/views/components"
 )
 
 func RenderElement(c echo.Context, status int, component templ.Component) error {
@@ -35,7 +36,7 @@ func Hello(c echo.Context) error {
 func Click(c echo.Context) error {
 	randomNumber := rand.Intn(10000)
 
-	return RenderElement(c, http.StatusOK, views.SwappedNumbers(randomNumber))
+	return RenderElement(c, http.StatusOK, components.SwappedNumbers(randomNumber))
 }
 
 func Healthcheck(c echo.Context) error {
