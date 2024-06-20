@@ -1,6 +1,7 @@
 package handlers_test
 
 import (
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -11,6 +12,7 @@ import (
 )
 
 func setUp(t *testing.T) *echo.Echo {
+	fmt.Println("setting up handlers test...")
 	app := echo.New()
 	handlers.MountRoutes(app)
 	t.Cleanup(func() {})
@@ -37,4 +39,15 @@ func TestHandlers_Healthcheck(t *testing.T) {
 	app.ServeHTTP(recorder, req)
 
 	assert.Equal(t, http.StatusOK, recorder.Code)
+}
+
+func TestHandlers_Click(t *testing.T) {
+	app := setUp(t)
+
+	req := httptest.NewRequest(http.MethodPost, "/mouse-clicked", nil)
+	recorder := httptest.NewRecorder()
+
+	app.ServeHTTP(recorder, req)
+
+	assert.Contains(t, recorder.Body.String(), "number: ")
 }
