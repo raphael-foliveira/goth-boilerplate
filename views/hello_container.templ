@@ -10,10 +10,8 @@ type ContainerProps struct {
 templ HelloContainer(props ContainerProps) {
 	@partials.BaseComponent() {
 		<div class="w-full text-center p-32">
-			<h1 class="text-8xl w-full">{ props.Title }</h1>
-			<div class="bg-emerald-500 p-32 text-center">
-				@Hello(props.Name)
-			</div>
+			<h1 class="text-8xl">{ props.Title }</h1>
+			@Hello(props.Name)
 		</div>
 	}
 }

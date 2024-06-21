@@ -4,7 +4,7 @@ import "github.com/raphael-foliveira/goth-boilerplate/views/partials"
 
 templ Hello(name string) {
 	@partials.BaseComponent() {
-		<div hx-post="/mouse-entered" hx-target=".entered-target" hx-swap="beforeend">
+		<div hx-post="/mouse-clicked" hx-target=".entered-target" hx-swap="beforeend">
 			<h3>Hello, { name }!</h3>
 			<div class="entered-target"></div>
 		</div>
