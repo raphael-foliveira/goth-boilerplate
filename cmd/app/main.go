@@ -14,8 +14,13 @@ func startServer(app *echo.Echo) {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
 
+	appPort := os.Getenv("APP_PORT")
+	appHost := os.Getenv("APP_HOST")
+
+	addr := fmt.Sprintf("%v:%v", appHost, appPort)
+
 	go func() {
-		if err := app.Start(":3000"); err != nil {
+		if err := app.Start(addr); err != nil {
 			fmt.Println(err)
 		}
 	}()
