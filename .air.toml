@@ -4,8 +4,8 @@ tmp_dir = "tmp"
 
 [build]
 args_bin = []
-bin = "/main"
-cmd = "templ generate && go build -o /main ./cmd/app"
+bin = "./tmp/main"
+cmd = "templ generate && go build -o ./tmp/main ./cmd/app"
 delay = 200
 exclude_dir = ["tmp", "vendor", "testdata", "node_modules"]
 exclude_file = []
